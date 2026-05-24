@@ -1,1 +1,1 @@
-MCP
+this repo contains .vs folder for local stdio MCP tool
