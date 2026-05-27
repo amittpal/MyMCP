@@ -6,7 +6,7 @@ namespace MyMCP.Controllers
     [McpServerToolType]
     public class FruitsService
     {
-        [McpServerTool, Description("Gets list of fruits")]
+        [McpServerTool(Name = "GetFruits"), Description("Gets list of fruits")]
         public string[] GetFruits()
         {
             return ["Mango", "Banana"];

@@ -1,6 +1,6 @@
 {
 	"servers": {
-		"my-mcp-server-70b8e2a4": {
+		"my-mcp-server-local": {
 			"type": "stdio",
 			"command": "dotnet",
 			"args": [
@@ -8,6 +8,11 @@
 				"--project",
 				"D:/projects/MyMCP/MyMCP.csproj"
 			]
+		},
+		"my-mcp-server-prod": {
+			// for remote HTTP server
+			"type": "http",
+			"url": "https://localhost:7123/mcp"
 		}
 	},
 	"inputs": []
