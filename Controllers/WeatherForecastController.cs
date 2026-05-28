@@ -14,7 +14,7 @@ namespace MyMCP.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         ];
 
-        [McpServerTool(Name = "GetWeatherForecast"),Description("GetWeatherForecast Get a list of weather forecasts.")]
+        [McpServerTool(Name = "GetWeatherForecast"), Description("GetWeatherForecast Get a list of weather forecasts.")]
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> GetWeatherForecast()
         {

@@ -10,6 +10,18 @@ builder.Services.AddMcpServer()
         // Optional configuration:
         // Enforce stateless HTTP routing rules
         options.Stateless = true;
+        options.ConfigureSessionOptions = (httpContext, mcpServerOptions, cancellationToken) =>
+        {
+            var providedToken=httpContext.Request.Headers["Authorization"].ToString();
+            var expectedToken=$"Bearer{Environment.GetEnvironmentVariable("MCP_AUTH_TOKEN")}";
+            if (providedToken != expectedToken)
+            {
+                httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                throw new UnauthorizedAccessException("Invalid authentication token");
+            }
+                return Task.CompletedTask;
+
+        };
     })
     .WithToolsFromAssembly(typeof(Program).Assembly); // Auto-discovers your custom [McpTool]s
 

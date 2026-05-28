@@ -12,7 +12,10 @@
 		"my-mcp-server-prod": {
 			// for remote HTTP server
 			"type": "http",
-			"url": "https://localhost:7123/mcp"
+			"url": "https://localhost:7123/mcp",
+			"headers": {
+				"Authorization":"Bearer mytoken"
+			}
 		}
 	},
 	"inputs": []
