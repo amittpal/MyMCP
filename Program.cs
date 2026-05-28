@@ -13,7 +13,7 @@ builder.Services.AddMcpServer()
         options.ConfigureSessionOptions = (httpContext, mcpServerOptions, cancellationToken) =>
         {
             var providedToken=httpContext.Request.Headers["Authorization"].ToString();
-            var expectedToken=$"Bearer{Environment.GetEnvironmentVariable("MCP_AUTH_TOKEN")}";
+            var expectedToken=$"Bearer {Environment.GetEnvironmentVariable("MCP_AUTH_TOKEN")}";
             if (providedToken != expectedToken)
             {
                 httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
